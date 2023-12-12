@@ -10,6 +10,11 @@ const app = express();
 const controller = {};
 const port = process.env.PORT || 5000;
 
+app.use((req, res, next) => {
+  res.setHeader('X-Powered-By', '');
+  next();
+});
+
 const options = {
 	info: {
 		version: '1.0.0',
