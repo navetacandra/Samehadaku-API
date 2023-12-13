@@ -4,12 +4,14 @@ global.SAMEHADAKU_URL = process.env.SAMEHADAKU_URL;
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const cors = require('cors');
 const expressJSDocSwagger = require('express-jsdoc-swagger');
 
 const app = express();
 const controller = {};
 const port = process.env.PORT || 5000;
 
+app.use(cors({ origin: '*' }))
 app.use((req, res, next) => {
   res.setHeader('X-Powered-By', '');
   next();

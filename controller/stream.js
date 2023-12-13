@@ -37,7 +37,10 @@ async function stream(slug) {
 		}
 	}).toArray();
 
-	return await Promise.all(data);
+	return {
+		title: $('h1.entry-title').text(),
+		embed: await Promise.all(data)
+	};
 }
 
 module.exports = stream;
